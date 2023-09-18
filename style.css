@@ -1,0 +1,392 @@
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+
+:root {
+    /* primary */
+    --soft-cyan-full-slider-bar: hsl(174, 77%, 80%);
+    --strong-cyan-slider-background: hsl(174, 86%, 45%);
+    --light-grayish-red-discount-background: hsl(14, 92%, 95%);
+    --light-red-discount-text: hsl(15, 100%, 70%);
+    --pale-blue-cta-text: hsl(226, 100%, 87%);
+
+    /* neutral */
+    --neutral-white: hsl(0, 0%, 100%); /* Pricing Component Background */
+    --neutral-very-pale-blue: hsl(230, 100%, 99%); /*  Main Background */
+    --neutral-light-grayish-blue: hsl(224, 65%, 95%); /* Empty Slider Bar */
+    --neutral-light-grayish-blue-toggle: hsl(223, 50%, 87%); /*  Toggle Background */
+    --neutral-grayish-blue: hsl(225, 20%, 60%); /* Text */
+    --neutral-dark-desaturated-blue: hsl(227, 35%, 25%); /* Text & CTA Background */
+
+
+    --neutral-almost-black-shadow: hsl(0, 0%, 8%, 0.3);
+
+    /* font body-copy */
+    --fs-body-copy: 15px;
+
+    --small-radius: .25rem;
+
+    --pill-width: 3rem;
+    --pill-height: 1.5rem;
+}
+
+html {
+    font-size: var(--fs-body-copy);
+}
+
+body {
+    /*  desktop: 1440x800px
+        mobile: 375x780px 
+        
+        desktop main: 541x397px (541x596 including the appname)
+            appname & circles container: 541x200px
+            slider container: 541x264px
+            button & ul container: 541x138px
+        mobile main: 326x479px (326x655 including the appname)
+            appname & circles container: 326x176px
+            slider container: 326x280px            
+            button & ul container: 326xx200px
+    */
+    font-family: 'Manrope', monospace;
+}
+
+.hidden {
+    display: none;
+}
+
+/* from https://austingil.com/how-to-build-html-forms-right-accessibility/ */
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+  }
+ 
+.container {
+    max-width: 1440px;
+    margin-inline: auto;
+        
+    min-height: 100vh;
+    display: grid;
+    grid-auto-rows: auto 1fr auto;
+    gap: 1rem;
+
+    background-image: url('./images/bg-pattern.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-color: var(--neutral-very-pale-blue);
+}
+
+header {
+    align-self: end;
+    justify-self: center;
+    padding-block: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    background-image: url('./images/pattern-circles.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    margin-top: 3rem;
+}
+
+header > * {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.25rem;
+}
+
+header > p {
+    font-size: .9rem;
+    max-width: clamp(11.25rem, 0.6117rem + 34.0426vw, 31.25rem);
+    margin: 0 auto;
+}
+
+main {
+    margin-block: 5rem auto;
+    margin-inline: auto;
+    box-shadow: 0 2rem 3rem var(--neutral-light-grayish-blue);
+}
+
+.data {
+    display: grid;
+    gap: 2rem;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "pageviews"
+        "slider"
+        "permonth"
+        "billing";
+    align-items: center;
+
+    border-top-left-radius: .8rem;
+    border-top-right-radius: .8rem;
+    padding-block: 2.5rem;
+    margin-bottom: .3rem;
+    border: none;
+    border-bottom: 3px solid var(--neutral-light-grayish-blue);
+    background-color: var(--neutral-white);
+}
+
+.data p:first-of-type {
+    grid-area: pageviews;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: .85em;
+}
+
+.data .range-container {
+    grid-area: slider;
+    width: 80%;
+    justify-self: center;
+}
+
+.data p:last-of-type {
+    grid-area: permonth;
+    
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: .2rem;
+}
+
+#slider {
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 100%;
+    cursor: pointer;
+    /* outline: none; */
+    border-radius: 15px;
+    height: 6px;
+    background: #ccc;
+}
+/* Round-nub: Chrome, etc. */
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .8rem;
+    border: 8px solid var(--strong-cyan-slider-background);
+    background-image: url('./images/icon-slider.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: var(--strong-cyan-slider-background);
+    box-shadow: 0 1rem 1rem .5rem var(--soft-cyan-full-slider-bar);
+    border-radius: 50%;
+}
+
+/* Round-nub: Firefox */
+#slider::-moz-range-thumb {
+    /* if width and height values are same as above, the thumb is larger */
+    width: 1rem;
+    height: 1rem;
+    padding: .25rem;
+    border: 8px solid var(--strong-cyan-slider-background);
+    background-image: url('./images/icon-slider.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: var(--strong-cyan-slider-background);
+    box-shadow: 0 1rem 1rem .5rem var(--soft-cyan-full-slider-bar);
+    border-radius: 50%;
+}
+
+.radio-btn-group {
+    grid-area: billing;
+    width: min-content;
+    justify-self: center;
+
+    /* This is for the pill-shape and nub */
+    position: relative;
+    padding-block: 1rem;
+
+    /* This is for the radio and associated label */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+}
+
+.pill-shape {
+    position: absolute;
+    height: var(--pill-height);
+    width: var(--pill-width);
+    background: var(--neutral-grayish-blue);
+    border-radius: 2rem;
+    left: 8rem;
+    top: 1rem;
+    z-index: 1;
+}
+
+.round-nub {
+    position: absolute;
+    width: calc( var(--pill-height) - .5rem);
+    height: calc( var(--pill-height) - .5rem);
+    background-color: white;
+    border-radius: .5rem;
+    transition: all 200ms;
+    z-index: 10;
+}
+
+input[type="radio"] {
+    /* opacity:0 instead of display: none for accessibility */
+    /* Article here: https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/ */
+    opacity: 0;
+    z-index: 15;
+}
+
+input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-container label {
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.label-choice1 {
+    /* padding-inline-end: 2.25rem; //lesser now that the radios are there */
+    padding-inline-end: 1.25rem;
+}
+
+.label-choice2 {
+    /* padding-inline-end: 2.25rem; //lesser now that the radios are there */
+    padding-inline-start: 1.25rem;
+}
+
+#choice1:checked~.round-nub {
+    left: 8.3rem;
+}
+
+/* Cannot use choice2 since the nub and pill are scoped within choice1 in the HTML */
+#choice1:not(:checked)~.round-nub {
+    left: 9.75rem;
+}
+
+.radio-btn-group:hover .pill-shape {
+    background-color: var(--strong-cyan-slider-background);
+    cursor: pointer;
+}
+
+/* For accessibility and keyboard navigation */
+.radio-btn-group:focus-within .pill-shape {
+    background-color: var(--strong-cyan-slider-background);
+    /* The next lines courtesy of https://css-tricks.com/copy-the-browsers-native-focus-styles/ */
+    outline: 2px auto Highlight;
+    outline: 2px solid -webkit-focus-ring-color;
+}
+
+.negative-discount {
+    margin-inline-start: .3rem;
+    padding: .3rem .7rem;
+    border-radius: 2rem 2rem;
+    color: var(--light-red-discount-text);
+    background-color: var(--light-grayish-red-discount-background);
+}
+
+.discount {
+    display: none;
+}
+
+.lower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 2rem;
+    border-bottom-right-radius: .8rem;
+    border-bottom-left-radius: .8rem;
+    border: none;
+    background-color: var(--neutral-white);
+}
+
+ul {
+    padding: 0;
+}
+
+li::before {
+    content: url('./images/icon-check.svg');
+    padding-inline: 1rem;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+    margin-bottom: .75rem;
+}
+
+button {
+    padding: .6rem 3.25rem;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    color: var(--neutral-grayish-blue);
+    background-color: var(--neutral-dark-desaturated-blue);
+}
+
+button:hover, button:focus {
+    color: var(--neutral-white);
+    cursor: pointer;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media screen and (min-width: 768px) {
+    
+    main {
+        max-width: 540px;
+        width: 100%;
+    }
+
+    .data {
+        gap: 2rem;
+        grid-template-areas: 
+        "pageviews permonth"
+        "slider slider"
+        "billing billing";
+    }
+
+    .negative-discount {
+        display: none;
+    }
+
+    .discount {
+        display: inline;
+        margin-inline-start: .3rem;
+        padding: .3rem .7rem;
+        border-radius: 2rem 2rem;
+        color: var(--light-red-discount-text);
+        background-color: var(--light-grayish-red-discount-background);
+    }
+
+    .lower {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-inline: 2rem;
+    }
+
+    li {
+        text-align: start;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+  
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Simple, traffic-based pricing</h1>
+      <p>Sign-up for our 30-day trial. No credit card required.</p>
+    </header>
+    <main>
+      <fieldset class="data">
+        <legend class="visually-hidden">Billing</legend>
+        <p><span class="pageviews"></span> Pageviews</p>
+        <p><span class="plan"></span>/ month</p>
+        <div class="range-container">
+          <!-- set aria-valuetext via js -->
+          <input type="range" name="slider" id="slider"  min="0" max="4" value="2">
+          <label class="visually-hidden" for="slider">Subscription Pageviews per Month</label>
+        </div>
+        <div class="radio-btn-group">
+            <div class="radio-container">
+                <label for="choice1" class="label-choice1">Monthly Billing</label>
+                <input type="radio" name="billing" value=1 id="choice1" checked>
+                  <!-- the round nub -->
+                  <div class="round-nub"></div>							
+                  <!-- the background for the pill -->
+                  <div class="pill-shape"></div>
+            </div>
+            <div class="radio-container">
+                <input type="radio" name="billing" value=0.75 id="choice2">
+                <label for="choice2" class="label-choice2" aria-label="yearly billing 25% discount">Yearly Billing<span class="negative-discount">-25%</span><span class="discount">25% discount</span></label>
+              </div>
+        </div>
+      </fieldset>
+      <div class="lower">
+          <div class="features">
+            <ul>
+              <li>Unlimited websites</li>
+              <li>100% data ownership</li>
+              <li>Email reports</li>
+            </ul>
+          </div>
+          <button id="btn" type="submit">Start my trial</button>
+      </div>
+    </main>
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/kwngptrl" target="_blank">Wannacode</a>.
+  </div>
+</body>
+</html>
