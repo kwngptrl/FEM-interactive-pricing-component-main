@@ -93,6 +93,8 @@ Okay, that's about it. What I thought was simple wasn't so simple at all.
 
 I don't know. It seems pretty complete. I'm going to look at how other people have done with this challenge.
 
+UPDATE: After looking at other people's solutions and actually finding a working site with something very similar, i.e. slider with monthly/yearly billing, I decided to implement it into my solution as well. Also, updated how the screenreader says the billing as the slider is moved.
+
 ### Useful resources
 
 Resources are as mentioned in the [What I learned](#what-i-learned) above.
