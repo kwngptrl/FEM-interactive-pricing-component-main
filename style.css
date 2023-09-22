@@ -8,6 +8,7 @@
     --light-grayish-red-discount-background: hsl(14, 92%, 95%);
     --light-red-discount-text: hsl(15, 100%, 70%);
     --pale-blue-cta-text: hsl(226, 100%, 87%);
+    --pale-blue-cta-text2: hsl(226, 21%, 45%);
 
     /* neutral */
     --neutral-white: hsl(0, 0%, 100%); /* Pricing Component Background */
@@ -107,6 +108,7 @@ header h1 {
 
 header > p {
     font-size: .9rem;
+    color: var(--pale-blue-cta-text2);
     max-width: clamp(11.25rem, 0.6117rem + 34.0426vw, 31.25rem);
     margin: 0 auto;
 }
@@ -115,6 +117,8 @@ main {
     margin-block: 5rem auto;
     margin-inline: auto;
     box-shadow: 0 2rem 3rem var(--neutral-light-grayish-blue);
+    /* color: var(--neutral-dark-desaturated-blue); */
+    color: var(--pale-blue-cta-text2);
 }
 
 .data {
@@ -141,7 +145,8 @@ main {
     grid-area: pageviews;
     text-transform: uppercase;
     text-align: center;
-    font-size: .85em;
+    font-size: .9em;
+    letter-spacing: .12rem;
 }
 
 .data .range-container {
@@ -160,9 +165,10 @@ main {
 }
 
 .amount {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: .2rem;
+    color: var(--neutral-dark-desaturated-blue);
 }
 
 #slider {
@@ -174,6 +180,10 @@ main {
     border-radius: 15px;
     height: 6px;
     background: #ccc;
+}
+
+#slider:active {
+    cursor: grabbing;
 }
 /* Round-nub: Chrome, etc. */
 #slider::-webkit-slider-thumb {
@@ -227,7 +237,7 @@ main {
     position: absolute;
     height: var(--pill-height);
     width: var(--pill-width);
-    background: var(--neutral-grayish-blue);
+    background: var(--neutral-light-grayish-blue-toggle);
     border-radius: 2rem;
     left: 8rem;
     top: 1rem;
@@ -299,7 +309,8 @@ input[type="radio"]:hover {
 
 .negative-discount {
     margin-inline-start: .3rem;
-    padding: .3rem .7rem;
+    /* padding: .3rem .7rem; */
+    padding: .15rem .5rem .2rem;
     border-radius: 2rem 2rem;
     color: var(--light-red-discount-text);
     background-color: var(--light-grayish-red-discount-background);
@@ -307,6 +318,12 @@ input[type="radio"]:hover {
 
 .discount {
     display: none;
+}
+
+.negative-discount,
+.discount {
+    font-size: smaller;
+    cursor: default;
 }
 
 .lower {
@@ -340,7 +357,7 @@ button {
     padding: .6rem 3.25rem;
     border: 2px solid transparent;
     border-radius: 2rem;
-    color: var(--neutral-grayish-blue);
+    color: var(--pale-blue-cta-text);
     background-color: var(--neutral-dark-desaturated-blue);
 }
 
@@ -374,7 +391,8 @@ button:hover, button:focus {
     .discount {
         display: inline;
         margin-inline-start: .3rem;
-        padding: .3rem .7rem;
+        /* padding: .3rem .7rem; */
+        padding: .2rem .5rem .25rem;
         border-radius: 2rem 2rem;
         color: var(--light-red-discount-text);
         background-color: var(--light-grayish-red-discount-background);
