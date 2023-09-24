@@ -101,7 +101,7 @@ Resources are as mentioned in the [What I learned](#what-i-learned) above.
 
 ## Author
 
-- Frontend Mentor - [@Wannacodee](https://www.frontendmentor.io/profile/kwngptrl)
+- Frontend Mentor - [@Wannacode](https://www.frontendmentor.io/profile/kwngptrl)
 
 ## Acknowledgments
 
